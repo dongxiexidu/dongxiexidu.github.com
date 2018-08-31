@@ -1,3 +1,3 @@
 # dongxiexidu.github.com
 
-http://dongxiexidu.github.com
+https://dongxiexidu.github.io
