@@ -1,125 +1,111 @@
 ---
 layout: post
-title: 'H2O theme for Jekyll'
-subtitle: '或许是最漂亮的Jekyll主题'
+title: 'NSCache实战记录-缓存图片'
 date: 2017-04-18
 categories: 技术
-cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-postcover.jpg'
-tags: jekyll 前端开发 设计
+tags: Objective-C 缓存
 ---
 
-正如我在[微博](http://weibo.com/1374146504/profile?topnav=1&wvr=6)上所说的，使用[Jekyll](http://jekyll.com.cn/)半年以来一直没有令我满意的主题模板，所以开始计划自己写一套好看又好用的主题模板。设计之初就明确了极简主义，风格采用扁平化了，通过卡片式设计来进行区块分明的布局，参考了Medium的ui样式和知乎专栏的视觉风格。
+## 应用场景:
+- 1.通过`UIColor`生成一个`UIImage`,并缓存起来,这样,如果下次传同一个`color`就不用通过代码再次创建,直接从缓存中读取`UIImage`
+- 2.程序被杀死后,缓存被清除(考虑NSCache)
 
-## H2O
+代码
+```swift
+#import <UIKit/UIKit.h>
 
-[源码及使用文档 →](https://github.com/kaeyleo/jekyll-theme-H2O)
+@interface UIImage (NTESColor)
 
-![](http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-realhome.jpg)
++ (UIImage *)imageWithColor:(UIColor *)color;
 
-新主题名叫"H2O"，基于Jekyll 3.0.x（使用```gem update jekyll```升级Jekyll），Markdown的代码高亮不再支持pygments转而使用rouge，咱已经默认配置了 ```highlighter: rouge``` 。用到的技术栈也很简单：引入jQuery类库，使用Sass编写样式，使用Gulp来编译Sass、合并压缩css、js，开源在[Github](https://github.com/kaeyleo/jekyll-theme-H2O)上，稍作配置即可用于你的Jekyll博客上。
-
-![Design with Sketch](http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-sketchdesign.png)
-
-使用Sketch完成H2O主题的原型设计
-
-![My Jekyll themes](http://on2171g4d.bkt.clouddn.com/jekyll-theme-vs.jpg)
-
-比之前漂亮不少吧，下面聊聊H2O的新特性。
-
-## 新特性
-
-### 主题配色
-
-支持两种主题配色——蓝色和粉色。
-
-![](https://github.com/kaeyleo/jekyll-theme-H2O/blob/master/screenshot/jekyll-theme-h2o-themecolor.jpg?raw=true)
-
-### 侧边栏
-
-相比自己上一个版本的博客主题，首页增加了侧边栏，方便展示博主的个人信息和文章标签。
-
-### 社交图标
-
-使用阿里的图标管理平台[Iconfont](http://iconfont.cn/)整理了一套<strike>墙内外</strike>常用的社交图标，包括微博、知乎、掘金、简书、Github等十多个网站，鼠标悬停会显示该站的主题色。
-
-![social iconfont](http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-snstext.jpg)
-
-### 前后文导航
-
-![Next post navigator](http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-nextpostnav.png)
-
-### 自定义文章封面
-
-在Markdown的[文章头信息](http://jekyll.com.cn/docs/frontmatter/)里添加cover参数来配置文章的封面图片，如果没有配置封面，则默认【主题色+底纹】的组合作为文章封面。值得一提的是，H2O有两种（粉、蓝）主题色和六种底纹（电路板、食物、云海、钻石等等）供你选择。
-
-### 头图个性化底纹
-
-在没有图片的情况下单纯显示颜色会不会太无趣了点？于是想到了加入底纹元素，底纹素材是SVG格式的（保存在css样式里），加载比图片快很多。
-
-![](http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-headerpatterns.jpg)
-
-### 代码高亮
-
-模板引入了[Prism.js](http://prismjs.com)，一款轻量、可扩展的代码语法高亮库。
-
-很多知名网站如[MDN](https://developer.mozilla.org/)、[css-tricks](https://css-tricks.com/)也在用它，JavaScript 之父 [Brendan Eich](https://brendaneich.com/) 也在个人博客上使用。
-
-![代码高亮](http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-highlight.png)
-
-遵循 [HTML5](https://www.w3.org/TR/html5/grouping-content.html#the-pre-element) 标准，Prism 使用语义化的 `<pre>` 元素和 `<code>` 元素来标记代码区块：
-
-```
-<pre><code class="language-css">p { color: red }</code></pre>
+@end
 ```
 
-在Markdown中你可以这样写：
+```swift
+#import <sys/stat.h>
+#import "UIImage+NTESColor.h"
 
+@interface UIColorCache : NSObject
+@property (nonatomic,strong)    NSCache *colorImageCache;
+@end
+
+@implementation UIColorCache
++ (instancetype)sharedCache{
+    static UIColorCache *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[UIColorCache alloc] init];
+    });
+    return instance;
+}
+
+- (instancetype)init{
+    if (self = [super init]){
+        _colorImageCache = [[NSCache alloc] init];
+    }
+    return self;
+}
+
+- (UIImage *)image:(UIColor *)color{
+    return color ? [_colorImageCache objectForKey:[color description]] : nil;
+}
+
+- (void)setImage:(UIImage *)image
+        forColor:(UIColor *)color{
+    [_colorImageCache setObject:image
+                         forKey:[color description]];
+}
+@end
+
+@implementation UIImage (NTESColor)
+
++ (UIImage *)clearColorImage {
+    return [UIImage imageNamed:@"Clear_color_image"];
+}
+
++ (UIImage *)imageWithColor:(UIColor *)color {    
+    if (color == nil) {
+        assert(0);
+        return nil;
+    }
+    UIImage *image = [[UIColorCache sharedCache] image:color];
+    if (image == nil){
+        CGFloat alphaChannel;
+        [color getRed:NULL green:NULL blue:NULL alpha:&alphaChannel];
+        BOOL opaqueImage = (alphaChannel == 1.0);
+        CGRect rect = CGRectMake(0, 0, 1, 1);
+        UIGraphicsBeginImageContextWithOptions(rect.size, opaqueImage, [UIScreen mainScreen].scale);
+        [color setFill];
+        UIRectFill(rect);
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        [[UIColorCache sharedCache] setImage:image
+                                    forColor:color];
+    }
+    return image;
+}
+@end
 ```
- ```css
-	p { color: red }
- ```
-```
 
-支持语言：
+#### 代码分析:
+- 1.为什么创建单例`UIColorCache`?
+`UIColorCache`这个单例的`colorImageCache`缓存`color`生成的图片
+- 2.使用`[color description]`作为`key`确保了唯一性
 
-- HTML
-- CSS
-- Sass
-- JavaScript
-- CoffeeScript
-- Java
-- C-like
-- Swift
-- PHP
-- Go
-- Python
 
-### 第三方评论
 
-由于多说关闭，又对国内其他第三方评论插件无感，所以将[Disqus](https://disqus.com/)列为首选（目前模板也只提供了这个），请自备梯子。
+## NSCache简单说明
+1）`NSCache`是苹果官方提供的缓存类，具体使用和`NSMutableDictionary`类似，在`AFN`和`SDWebImage`框架中被使用来管理缓存
+2）苹果官方解释`NSCache`在系统内存很低时，会自动释放对象（但模拟器演示不会释放）
+    建议：接收到内存警告时主动调用`removeAllObject`方法释放对象
+3）`NSCache`是线程安全的，在多线程操作中，不需要对`NSCache`加锁
+4）`NSCache`的`Key`只是对对象进行`Strong`引用，不是拷贝，在清理的时候计算的是实际大小而不是引用的大小
 
-### 移动端优化
 
-响应式设计，对手机和平板等移动设备做了优化。
+### 问题一：App重启后，NSCache中的东西还存在吗？ 不会
+### 问题二：可以统计出NSCache中已经缓存的数据大小吗？  不
+### NSCache奇葩之处三：释放内存时，并不确定释放的对象的顺序
 
-![](http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-realm.png)
+[iOS开发基础 | 被忽视和误解的NSCache](https://www.jianshu.com/p/e456b7b9f52d)
 
-### 关于阅读体验
-
-我认为在内容质量相同的情况下，出色的沉浸式阅读体验是博客的核心。
-
-H2O在这方面还有很多需要完善的地方，比如：<strike>代码高亮</strike>、夜间模式、查看大图...
-
-### 其他特性：
-
-- 网页标题SEO优化
-- 标签索引，点击标签跳转到标签目录，即可查看对应的全部文章
-- 漂亮
-- 好看
-- 美
-
-## 最后
-
-本想趁这次机会将整站https化的，但折腾了半天发现弹性web托管并不支持，所以暂时搁置https的想法。另外，博客统计工具一直使用的是[百度统计](https://tongji.baidu.com)，这次新增了Google Analytics。
-
-这次从0到1，独自设计、开发再到发布大约用了一周时间，也算完成一个小小的开源项目了，后续也将持续完善和更新，欢迎[Star](https://github.com/kaeyleo/jekyll-theme-H2O)。
+[iOS之NSCache的简单介绍](https://www.jianshu.com/p/8ad9ff204f73)
