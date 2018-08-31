@@ -1,26 +1,26 @@
 ---
 layout: post
-title: 'Hello Jekyll'
-date: 2017-04-18
-author: Jekyll
+title: iOS如何将.m文件转换成c++文件/.cpp
+date: 2016-08-18
+author: 李东喜
 cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-banner.png'
-tags: jekyll
+tags: iOS
 ---
 
-> Transform your plain text into static websites and blogs.
+1.运行终端,cd到指定文件的文件夹
+2.执行以下命令
+```swift
+xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc PGScratchView.m -o PGScratchView.cpp
+```
+或者
+```swift
+xcrun -sdk iphoneos clang -arch arm64 -rewrite-objc PGScratchView.m
+````
+### 解析:
+`xcrun ` : Xcode run
+`-sdk iphoneos`用来指定平台,不同平台支持的代码也不一样(window /mac/iOS)
+`clang `是Xcode自带的内置LLVM编译器
 
-### Welcome
+`-arch arm64`指定架构-模拟器`i386`,32bit应用`armv7`,64bit应用`arm64`
 
-This site aims to be a comprehensive guide to Jekyll. We’ll cover topics such as getting your site up and running, creating and managing your content, customizing the way your site works and looks, deploying to various environments, and give you some advice on participating in the future development of Jekyll itself.
-
-### So what is Jekyll, exactly?Permalink
-
-Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like [Markdown](https://daringfireball.net/projects/markdown/)) and our [Liquid](https://github.com/Shopify/liquid/wiki) renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.
-
-### Helpful HintsPermalink
-
-Throughout this guide there are a number of small-but-handy pieces of information that can make using Jekyll easier, more interesting, and less hazardous. Here’s what to look out for.
-
-### Video Test
-
-<iframe type="text/html" width="100%" height="385" src="http://www.youtube.com/embed/gfmjMWjn-Xg" frameborder="0"></iframe>
+`-o PGScratchView.cpp`指定输出c++的文件名称,如果省略,默认就是` PGScratchView.cpp`
