@@ -1,6 +1,6 @@
 # Site settings 配置站点
 title: '船长学习录'
-description: '孩子，穷怎么了？穷也要挺起胸膛来，让别人看看，你不仅穷而且还矮。矮又如何？抬起你的头来，让他们知道，你不仅矮，而且还丑！丑不要紧，用你的言谈举止让他人明白：你还是一个没有内涵的人。没有内涵也不要放弃，从现在开始学习。当你读了足够多的书的时候，你会发现：自己还笨'
+description: '小时候不努力学习，长大了就只能给别人点赞'
 keyword: 'iOS,Objective-C,Swift'
 url: 'https://dongxiexidu.github.io' # your host
 
@@ -58,7 +58,7 @@ recommend-tags: true # whether or not display recommend-tags on the sidebar
 recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
 
 # Build settings
-paginate: 6
+paginate: 3
 paginate_path: 'page:num'
 exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md']
 
