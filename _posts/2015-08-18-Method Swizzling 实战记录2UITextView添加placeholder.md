@@ -18,11 +18,9 @@ tags: Method Swizzling runtime
 
 ```swift
 @interface UITextView (NTES)
-
 @property (nonatomic, strong) NSString* placeholder;
 @property (nonatomic, strong) UILabel * placeholderLabel;
 @property (nonatomic, strong) NSString* textValue;
-
 @end
 ```
 
