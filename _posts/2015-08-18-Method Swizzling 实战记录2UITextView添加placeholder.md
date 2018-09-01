@@ -13,6 +13,9 @@ tags: Method Swizzling runtime
 **实现步骤:**
 - 1.给`UITextView`扩展分类
 - 2.在分类里添加三个属性
+- 3.重写属性的`setter`和`getter`方法,自定义一个`label`添加到`UITextView`,根据需求隐藏和显示
+- 4.监听是否需要显示`placeholder `
+
 ```swift
 @interface UITextView (NTES)
 
@@ -22,9 +25,7 @@ tags: Method Swizzling runtime
 
 @end
 ```
-- 3.重写属性的`setter`和`getter`方法,自定义一个`label`添加到`UITextView`,根据需求隐藏和显示
 
-- 4.监听是否需要显示`placeholder `
 
 ```swift
 -(void)checkIfNeedToDisplayPlaceholder{
