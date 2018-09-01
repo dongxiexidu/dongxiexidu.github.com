@@ -25,9 +25,10 @@ tags: Method Swizzling runtime
 - 3.重写属性的`setter`和`getter`方法,自定义一个`label`添加到`UITextView`,根据需求隐藏和显示
 
 - 4.监听是否需要显示`placeholder `
+
 ```swift
 -(void)checkIfNeedToDisplayPlaceholder{
-    //  If our UITextView is empty, display our Placeholder label (if we have one)
+    // If our UITextView is empty, display our Placeholder label (if we have one)
     if (self.placeholderLabel == nil)
         return;
     
@@ -35,10 +36,10 @@ tags: Method Swizzling runtime
 }
 
 -(void)onTap{
-    //  When the user taps in our UITextView, we'll see if we need to remove the placeholder text.
+    // When the user taps in our UITextView, we'll see if we need to remove the placeholder text.
     [self checkIfNeedToDisplayPlaceholder];
     
-    //  Make the onscreen keyboard appear.
+    // Make the onscreen keyboard appear.
     [self becomeFirstResponder];
 }
 
@@ -49,7 +50,7 @@ tags: Method Swizzling runtime
 }
 ```
 
-
+### textValue的setter/getter方法
 ```swift
 -(void)setTextValue:(NSString *)textValue{
     //  Change the text of our UITextView, and check whether we need to display the placeholder.
@@ -61,6 +62,7 @@ tags: Method Swizzling runtime
 }
 ```
 
+### 通过运行时关联对象,设置placeholder
 ```swift
 NSString const *kKeyPlaceHolder = @"kKeyPlaceHolder";
 -(void)setPlaceholder:(NSString *)_placeholder{
@@ -93,7 +95,8 @@ NSString const *kKeyPlaceHolder = @"kKeyPlaceHolder";
 }
 ```
 
-```
+### 通过运行时关联对象,设置placeholderLabel
+```swift
 NSString const *kKeyLabel = @"kKeyLabel";
 -(void)setPlaceholderLabel:(UILabel *)placeholderLabel{
     //  Stores our new UILabel (which contains our placeholder string)
