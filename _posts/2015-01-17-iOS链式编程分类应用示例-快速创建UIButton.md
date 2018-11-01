@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic,readonly) UIButton *(^textColor)(UIColor *aColor);
 @property (copy, nonatomic,readonly) UIButton *(^btnBackgroundColor)(UIColor *aColor);
 @property (copy, nonatomic,readonly) UIButton *(^btnframe)(CGFloat x, CGFloat y, CGFloat w, CGFloat h);
+@property (copy, nonatomic,readonly) UIButton *(^addTarget)(id target, SEL action, UIControlEvents controlEvents);
 
 // 该方法为工厂方法,能够快速创建一个ChainButton,在一个参数为block的方法中一次性设置好你需要的ChainButton
 + (UIButton *)dx_makeButton:(void (^)(UIButton *))block;
@@ -86,6 +87,12 @@ NS_ASSUME_NONNULL_END
         return self;
     };
 }
+- (UIButton *(^)(id target, SEL action, UIControlEvents controlEvents))addTarget{
+    return ^(id target, SEL action, UIControlEvents controlEvents) {
+        [self addTarget:target action:action forControlEvents:controlEvents];
+        return self;
+    };
+}
 
 // 该方法为工厂方法,能够快速创建一个ChainButton,在一个参数为block的方法中一次性设置好你需要的ChainButton
 + (UIButton *)dx_makeButton:(void (^)(UIButton *))block{
@@ -103,6 +110,7 @@ UIButton *button = [UIButton dx_makeButton:^(UIButton * _Nonnull btn) {
     btn.title(@"船长").imageName(@"a").textColor([UIColor yellowColor]).titleFont(22);
     btn.btnBackgroundColor([UIColor lightGrayColor]);
     btn.btnframe(100, 100, 100, 50);
+    btn.addTarget(self, @selector(btnClickAction), UIControlEventTouchUpInside);
 }];
 [self.view addSubview:button];
 ```
