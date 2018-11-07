@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Method Swizzling 实战记录2UITextView添加placeholder
+title: Runtime关联对象 实战记录2UITextView添加placeholder
 date: 2015-08-18
-tags: Method Swizzling runtime
+tags: runtime
 ---
 
 **场景需求:**
