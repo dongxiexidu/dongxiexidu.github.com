@@ -132,3 +132,14 @@ extension  UIViewController {
     }
 
 ```
+## 关键字static和class的区别
+在方法的func关键字之前加上关键字static或者class都可以用于指定类方法.
+不同的是用class关键字指定的类方法可以**被子类重写**, 如下: 
+```swift
+override class func work() {
+    print("Teacher: University Teacher")
+}
+```
+
+但是用static关键字指定的类方法是不能被子类重写的, 根据报错信息: Class method overrides a 'final' class method. 
+我们可以知道被static指定的类方法包含final关键字的特性--防止被重写. 
