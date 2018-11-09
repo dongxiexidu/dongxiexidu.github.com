@@ -5,9 +5,9 @@ date: 2018-04-15
 tags: Runtime
 ---
 
-应用示例,利用Runtime给所有UIViewController添加全屏返回功能
+**应用示例,利用Runtime给所有UIViewController添加全屏返回功能**
 
-入口,重写`UIApplication`的`next`方法
+### 一.入口,重写`UIApplication`的`next`方法
 ```Swift
 extension UIApplication {
 
@@ -102,7 +102,7 @@ extension UINavigationController {
 ```
 
 ### 二.如何在Swift中给分类添加关联属性
-```
+```Swift
 extension  UIViewController {
     
     // MARK:- RuntimeKey   动态绑属性
