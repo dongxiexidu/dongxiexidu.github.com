@@ -79,3 +79,22 @@ SHA-256、SHA-384、SHA-512，散列值长度分别是256bit、384bit、512bit
 
 >SHA-3
 全新标准,专家正在研究中
+
+
+## 单向散列函数的应用 
+
+### 1.验证数据是否被篡改
+
+![demo]({{ "/assets/img/dataModify.png" | absolute_url }})
+
+再比如这个远程登录软件,每个软件版本都标注了散列值
+https://www.realvnc.com/en/connect/download/vnc/
+
+![demo]({{ "/assets/img/SHA-256.jpg" | absolute_url }})
+
+### 2.口令加密
+![demo]({{ "/assets/img/sha-2.jpg" | absolute_url }})
+
+这也就是为啥没有一个平台有找回密码的功能,,只有重置密码或者忘记密码,因为他们平台也不知道密码
+
+
