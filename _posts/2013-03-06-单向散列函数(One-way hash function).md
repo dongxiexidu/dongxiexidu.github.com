@@ -13,7 +13,7 @@ tags: 加密
 
 >散列值的长度和消息的长度无关，无论消息是1bit、10M、100G，单向散列函数都会计算出固定长度的散列值
 
-![demo]({{ "/assets/img/oneway.png" | absolute_url }})
+![demo]({{ "/assets/img/oneway.jpg" | absolute_url }})
 ![demo]({{ "/assets/img/hash.png" | absolute_url }})
 
 
@@ -71,11 +71,11 @@ MD5 (1.txt) = 202cb962ac59075b964b07152d234b70
 
 
 
-SHA-1
+>SHA-1
 产生160bit的散列值，目前已经不安全
 
-SHA-2
+>SHA-2
 SHA-256、SHA-384、SHA-512，散列值长度分别是256bit、384bit、512bit
 
-SHA-3
+>SHA-3
 全新标准,专家正在研究中
