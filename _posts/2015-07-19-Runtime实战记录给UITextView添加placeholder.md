@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Runtime关联对象 实战记录2UITextView添加placeholder
-date: 2015-08-18
-tags: runtime
+title: Runtime实战记录给UITextView添加placeholder
+date: 2015-07-19
+tags: Runtime
 ---
 
 **场景需求:**

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Method Swizzling 实战记录1
+title: Runtime实战记录Method Swizzling
 date: 2015-07-18
-tags: 函数
+tags: Runtime
 ---
 
 ## 需求:点击`textField`或者`textView`,弹窗键盘,点击`cell`跳转到另外一个控制器时候,同时退出键盘,返回到上一级界面,键盘自动弹出

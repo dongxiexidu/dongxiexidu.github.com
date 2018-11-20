@@ -1,8 +1,8 @@
 ---
 layout: post
-title: iOS运行时关联属性key
-date: 2015-03-18
-tags: 运行时
+title: Runtime关联属性key常见写法
+date: 2015-07-17
+tags: Runtime
 ---
 
 ## 常见面试题回顾:
