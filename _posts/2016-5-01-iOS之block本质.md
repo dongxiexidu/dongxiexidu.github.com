@@ -2,7 +2,7 @@
 layout: post
 title: iOS之block本质
 date: 2016-05-01
-tags: 
+tags: block
 ---
 
 ### block本质上也是一个`Objective-C`对象,它内部也有个isa指针
