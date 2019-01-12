@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Runtime之isKindOf
+title: Runtime之isKindOf面试题
 date: 2015-07-12
 tags: Runtime
 ---
@@ -9,15 +9,15 @@ tags: Runtime
 ```swift
 NSLog(@"%d", [[NSObject class] isKindOfClass:[NSObject class]]);
 NSLog(@"%d", [[NSObject class] isMemberOfClass:[NSObject class]]);
-NSLog(@"%d", [[MJPerson class] isKindOfClass:[MJPerson class]]);
-NSLog(@"%d", [[MJPerson class] isMemberOfClass:[MJPerson class]]);
+NSLog(@"%d", [[DXPerson class] isKindOfClass:[DXPerson class]]);
+NSLog(@"%d", [[DXPerson class] isMemberOfClass:[DXPerson class]]);
 ```
 `[NSObject class]`的本质就是类对象,所以以上写法等同于如下写法
 ```swift
 NSLog(@"%d", [NSObject isKindOfClass:[NSObject class]]); 
 NSLog(@"%d", [NSObject isMemberOfClass:[NSObject class]]); 
-NSLog(@"%d", [MJPerson isKindOfClass:[MJPerson class]]); 
-NSLog(@"%d", [MJPerson isMemberOfClass:[MJPerson class]]);
+NSLog(@"%d", [DXPerson isKindOfClass:[DXPerson class]]); 
+NSLog(@"%d", [DXPerson isMemberOfClass:[DXPerson class]]);
 ```
 
 
@@ -25,23 +25,23 @@ NSLog(@"%d", [MJPerson isMemberOfClass:[MJPerson class]]);
 ```swift
 [NSObject isKindOfClass:[NSObject class]]=1
 [NSObject isMemberOfClass:[NSObject class]]=0
-[MJPerson isKindOfClass:[MJPerson class]]=0
-[MJPerson isMemberOfClass:[MJPerson class]0
+[DXPerson isKindOfClass:[DXPerson class]]=0
+[DXPerson isMemberOfClass:[DXPerson class]0
 ```
 ### 为啥结果跟预期的想法视乎不一致,先看以下题目
 
 ```swift
-id person = [[MJPerson alloc] init];
+id person = [[DXPerson alloc] init];
 
-NSLog(@"%d", [person isMemberOfClass:[MJPerson class]]);
+NSLog(@"%d", [person isMemberOfClass:[DXPerson class]]);
 NSLog(@"%d", [person isMemberOfClass:[NSObject class]]);
 
-NSLog(@"%d", [person isKindOfClass:[MJPerson class]]);
+NSLog(@"%d", [person isKindOfClass:[DXPerson class]]);
 NSLog(@"%d", [person isKindOfClass:[NSObject class]]);
 
 
-NSLog(@"%d", [MJPerson isMemberOfClass:object_getClass([MJPerson class])]);
-NSLog(@"%d", [MJPerson isKindOfClass:object_getClass([NSObject class])]);
+NSLog(@"%d", [DXPerson isMemberOfClass:object_getClass([DXPerson class])]);
+NSLog(@"%d", [DXPerson isKindOfClass:object_getClass([NSObject class])]);
 ```
 ### 它们的底层实现
 ```swift
