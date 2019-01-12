@@ -111,7 +111,9 @@ NSLog(@"%d", [NSObject isKindOfClass:[NSObject class]]);
 [NSObject foo];
 ```
 答案是不会发生崩溃,而且调用了对象方法.
-### 原理:根据消息机制,会先在**元类**查找`foo`方法,没找到,`NSObject`会一层一层往上查找`tcls = tcls->superclass`,最终`NSObject`元类通过`superclass`会找到`NSObject`类对象,类对象存储着对象方法,正是`foo`方法,于是就找到
+### 原理:
+根据消息机制,会先在**元类**查找`foo`方法,没找到,`NSObject`会一层一层往上查找`tcls = tcls->superclass`,最终`NSObject`元类通过`superclass`会找到`NSObject`类对象,类对象存储着对象方法,正是`foo`方法,于是就找到
+
 ```swift
 - (BOOL)isKindOfClass:(Class)cls {
     for (Class tcls = [self class]; tcls; tcls = tcls->superclass) {
@@ -122,3 +124,23 @@ NSLog(@"%d", [NSObject isKindOfClass:[NSObject class]]);
 ```
 
 ![demo]({{ "/assets/img/superclass.png" | absolute_url }})
+
+如果反过来,仅仅实现类方法
+```swift
+@implementation NSObject (Interview)
++ (void)foo{
+    NSLog(@"+ (void)foo");
+}
+@end
+```
+那么调用这个实例方法,会不会崩溃?
+```swift
+NSObject *obj = [NSObject new];
+[obj foo];
+```
+答案很明显,会崩溃
+```swift
+-[NSObject foo]: unrecognized selector sent to instance 0x102001750
+*** Terminating app due to uncaught exception 'NSInvalidArgumentException',
+reason: '-[NSObject foo]: unrecognized selector sent to instance 0x102001750'
+```
