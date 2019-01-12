@@ -46,8 +46,9 @@ NSLog(@"%d", [MJPerson isKindOfClass:object_getClass([NSObject class])]);
 ### 它们的底层实现
 ```swift
 #import <objc/runtime.h>
-
+// 同理isKindOfClass
 - (BOOL)isMemberOfClass:(Class)cls {
+    // 左边传来的实例对象的类对象与右边的类对象进行比较
     return [self class] == cls;
 }
 
@@ -57,8 +58,9 @@ NSLog(@"%d", [MJPerson isKindOfClass:object_getClass([NSObject class])]);
     }
     return NO;
 }
-
+// 同理isKindOfClass
 + (BOOL)isMemberOfClass:(Class)cls {
+    // 获取左边的类对象的元类,那么右边也应该是元类对象的比较
     return object_getClass((id)self) == cls;
 }
 
@@ -69,23 +71,14 @@ NSLog(@"%d", [MJPerson isKindOfClass:object_getClass([NSObject class])]);
     return NO;
 }
 ```
+
+
+```
 ### 总结:
 - 1.如果是对象的比较(-开头的方法),那么右边应该传类对象进行比较,他们本质就是左边传来的实例对象的类对象与右边的类对象进行比较
-```swift
-// // 同理isKindOfClass
-- (BOOL)isMemberOfClass:(Class)cls {
-    // 左边传来的实例对象的类对象与右边的类对象进行比较
-    return [self class] == cls;
-}
-```
 - 2.如果是类对象的比较(+开头的方法),那么右边应该传元类对象进行比较
-```swift
-// 同理isKindOfClass
-+ (BOOL)isMemberOfClass:(Class)cls {
-    // 获取左边的类对象的元类,那么右边也应该是元类对象的比较
-    return object_getClass((id)self) == cls;
-}
-```
+
+
 
 ```swift
 // 这句代码的方法调用者不管是哪个类（只要是NSObject体系下的），都返回YES
