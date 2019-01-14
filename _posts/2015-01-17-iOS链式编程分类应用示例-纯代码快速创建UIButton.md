@@ -1,8 +1,8 @@
 ---
 layout: post
-title: iOS链式编程分类应用示例-快速创建UIButton
+title: iOS链式编程分类应用示例-纯代码快速创建UIButton
 date: 2015-01-17
-tags: 链式编程
+tags: 链式编程 Extension/分类
 ---
 ### 给`UIButton`扩展分类,添加自己封装的方法和属性
 ```swift

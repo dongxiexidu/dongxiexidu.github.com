@@ -2,7 +2,7 @@
 layout: post
 title: iOS UITextField实现输入手机号时自动添加空格
 date: 2015-06-18
-tags: UITextField
+tags: UITextField 代理/协议
 ---
 
 ### 场景需求:
@@ -55,6 +55,7 @@ NSString *textFieldStr =[self.textField.textstringByReplacingOccurrencesOfString
 ```
 
 #### 方法二(推荐)
+
 1.设置textField代理
 2.遵守UITextFieldDelegate协议
 3.实现代理方法`shouldChangeCharactersInRange`
