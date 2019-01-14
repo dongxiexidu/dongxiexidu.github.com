@@ -2,7 +2,7 @@
 layout: post
 title: FOUNDATION_EXPORT与#define和extern
 date: 2015-05-20
-tags: extern FOUNDATION_EXPORT
+tags: ObjC关键字
 ---
 
 定义常量:
