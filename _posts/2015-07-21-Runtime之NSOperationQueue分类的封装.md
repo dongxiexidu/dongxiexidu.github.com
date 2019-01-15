@@ -2,7 +2,7 @@
 layout: post
 title: Runtime之NSOperationQueue分类的封装
 date: 2015-07-21
-tags: Runtime
+tags: Runtime 队列
 ---
 
 - 1.使用runtime给NSOperationQueue分类添加block属性`completionBlock`
