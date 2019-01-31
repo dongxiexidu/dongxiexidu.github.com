@@ -32,8 +32,8 @@ public extension RoundCornerCompatible {
 }
 ```
 
-4.将所需要实现`.dx`语法的Base类遵守`RoundCornerCompatible`
-(凡是遵守这个协议`RoundCornerCompatible`的类,便拥有了.dx这个属性)
+4.将所需要实现`.dx`语法的`Base`类遵守`RoundCornerCompatible`协议,按照以往经验,遵守协议,实现协议的方法,但是Swift可以给协议添加可选属性(类似可选方法),凡是遵守这个协议`RoundCornerCompatible`的类,便拥有了.dx这个属性.
+这个.dx这个属性实际上是我们之前自定义的`RoundCorner`的一个泛型实例.
 ```swift
 extension UIView : RoundCornerCompatible {}
 ```
@@ -84,6 +84,11 @@ circle.dx.roundCorner(radius: 15/2, cornerColor: color)
 
 label.dx.roundCorner(radius: 20/2, cornerColor: UIColor.white,corners: [.topLeft,.topRight, .bottomRight, .bottomLeft])
 ```
+### 简单解析一下
+此处`.dx`语法拿到是`RoundCorner`这个泛型实例对象,而之后链式调用的`roundCorner(radius: CGFloat,cornerColor: UIColor)`方法,实际上是`RoundCorner`这个泛型实例对象进行的调用,这个泛型实例对象`RoundCorner`内部拥有这一个`base`就是遵守了`RoundCornerCompatible`这个协议的`UIView`
+
+### 重新组织一下语言
+绕了半天,`RoundCorner`这个就**相当于一个代理**,它内部拥有一个`base`就是方法调用者,例如`label`,而这个代理拥有某个功能,比如切圆角的功能,调用者需要遵守协议,那么你就可以使用我的功能
 
 [demo下载示例](https://github.com/dongxiexidu/UIViewRoundCorner)
 
