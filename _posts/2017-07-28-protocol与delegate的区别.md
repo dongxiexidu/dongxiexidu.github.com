@@ -8,7 +8,9 @@ tags: 代理/协议
 >protocol协议:一个只有方法体(没有具体实现)的类，Java中称作接口，实现协议的类必须实现协议中
 
 >delegate代理或委托:是一种设计模式。以协议的方式去体现(可以理解为协议的一种)，区别在于代码中常以<xxxDeletgate>标示，以便清晰辨明此为代理
+
 ### protocol示例1
+定义接口规范
 ```swift
 protocol SortType {
     func sort(items: Array<Int>) -> Array<Int>
@@ -41,6 +43,7 @@ testSort(sortObject: InsertSort())
 通过协议,我们看到这些对应的算法类具有统一的方法,这样做的好处显而易见,**代码相当的规范**
 
 ### protocol示例2
+`UIView`加载`Nib`文件
 ```swift
 protocol Nibloadable {
     
