@@ -57,7 +57,7 @@ extension Nibloadable where Self : UIView{
 ```
 
 外界调用
-```
+```swift
 class AuthentiView: UIView,Nibloadable {
     // ...
 }
@@ -66,6 +66,7 @@ let view = AuthentiView.loadFromNib()
 ```
 只要这个类遵守某某协议,便拥有了某项能力,某个功能,或者说白了就拥有了调用协议的某个方法的能力,我们经常看到说Swift是面向协议开发的语言,核心点其实就是这样子
 
+### protocol示例3
 再次举个例子,比如说验证号码是否是有效手机号,这在实际项目开发中经常用到,不仅仅是登录页面,通常我们可以封装一个工具类,比如`Helper`工具类
 ```swift
 class Helper: NSObject {
@@ -113,7 +114,7 @@ class LoginController: MobileProtocol{
 ```
 如果从调用者角度来看,好像方法是写在类内部一样`self.checkMobileAction(mobile: "1501234567")`,而实际上是在遵守的这个协议上
 
-### protocol示例3
+### protocol示例4
 把网络请求的封装到对应的协议`extension`中
 ```Swift
 protocol AuctionRequestProtocol {
