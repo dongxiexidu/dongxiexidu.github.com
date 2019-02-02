@@ -6,7 +6,7 @@ tags: Runtime
 ---
 
 参考了:https://casatwy.com/responder_chain_communication.html
-https://github.com/qingfengiOS/MutableCellTableView
+参考了:https://github.com/qingfengiOS/MutableCellTableView
 
 一般对象之间事件监听我们用代理,比如这种情况,控制器的子`view`(`CustomView`),上有一个btn点击事件,一般这种事件监听应该交由控制器统一处理
 ```swift
@@ -17,7 +17,6 @@ https://github.com/qingfengiOS/MutableCellTableView
 @interface CustomView : UIView
 @property (nonatomic, weak) id<CustomViewDelegate> delegate;
 @end
-
 
 - (IBAction)btnClick:(UIButton *)sender {
     if ([_delegate respondsToSelector:@selector(btnClick:)]) {
@@ -324,6 +323,11 @@ NSString *const kEventMyImageViewName = @"CustomImageViewEvent";
 @end
 ```
 
-这样控制器把事件的处理交给`eventProxy`去处理,这样控制器是不是很清爽呢
+这样控制器把事件的处理交给`eventProxy`去处理,这样控制器是不是很清爽呢,是不是很像**MVCE（Modle View Controller Event)**
+
+## 总结一下:
+- 1.在子view中发送事件
+- 2.一般在控制器中处理事件,也可以发送给一个专门对象`eventProxy`进行处理这个事件
+- 3.如果有需要可以继续传给其他地方进行处理,比如父控件,`AppDelegate`
 
 [demo下载](https://github.com/dongxiexidu/ResponderChainDemo )
