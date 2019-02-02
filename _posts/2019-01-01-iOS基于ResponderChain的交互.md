@@ -53,7 +53,6 @@ https://github.com/qingfengiOS/MutableCellTableView
 ```swift
 @interface UIResponder (Router)
 
-
 /**
  凡是继承UIResponder的控件,都可以通过事件响应链条传递事件
 
@@ -300,12 +299,8 @@ NSString *const kEventMyImageViewName = @"CustomImageViewEvent";
 ### 控制器中的代码实现
 ```swift
 @interface ViewController ()
-
 @property (strong, nonatomic) EventProxy *eventProxy;
-
 @end
-
-
 
 @implementation ViewController
 
