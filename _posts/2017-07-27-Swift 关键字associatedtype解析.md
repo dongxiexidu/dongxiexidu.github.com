@@ -11,10 +11,17 @@ tags: 代理/协议
 通过一个示例来演示
 ```swift
 // 因为结构体`struct`不能继承,又不想使用class类型,所以此处使用了protocol
-protocol Food { }
+protocol Food {
+    // 协议可以声明变量
+    var weight: CGFloat{ get }
+}
 
 // 定义一个肉类结构体,遵守Food协议,用于肉食动物
-struct Meat: Food { }
+struct Meat: Food {
+    var weight: CGFloat{
+        return 5.0
+    }
+}
 
 // 定义一个动物的协议
 protocol Animal {
@@ -49,7 +56,11 @@ override func viewDidLoad() {
 
 ```swift
 // 定义一个蔬菜的结构体,遵守Food协议,用于非肉食动物
-struct Vegetables: Food { }
+struct Vegetables: Food {
+    var weight: CGFloat{
+        return 2.0
+    }
+}
 
 struct Rabbit: Animal{
     func eat(_ food: Food) {
