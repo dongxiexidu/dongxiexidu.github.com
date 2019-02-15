@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Runtime之NSOperationQueue分类的封装
+title: 多线程之NSOperationQueue分类的封装
 date: 2015-07-21
-tags: Runtime 队列
+tags: 多线程
 ---
 
 - 1.使用runtime给NSOperationQueue分类添加block属性`completionBlock`
@@ -104,8 +104,8 @@ NSOperationQueue+CompletionBlock.m文件
 使用示例
 ```Swift
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    
     [queue addOperationWithBlock:^{
         // currentThread<NSThread: 0x6000028fde40>{number = 3, name = (null)}
         NSLog(@"currentThread%@",[NSThread currentThread]);
