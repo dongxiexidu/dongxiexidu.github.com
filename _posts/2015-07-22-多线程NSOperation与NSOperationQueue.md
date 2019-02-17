@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Runtime之NSOperationQueue分类的封装
+title: 多线程NSOperation与NSOperationQueue
 date: 2015-07-22
 tags: 多线程
 ---
