@@ -66,8 +66,8 @@ tags: 多线程
 
 - 2.使用子类 NSBlockOperation
 
+子类 NSBlockOperation
 ```Swift
-// 使用子类 NSBlockOperation
 - (void)useBlockOperation {
 
     // 1.创建 NSBlockOperation 对象
