@@ -114,6 +114,9 @@ UIButton *button = [UIButton dx_makeButton:^(UIButton * _Nonnull btn) {
 }];
 [self.view addSubview:button];
 ```
+逆向分析这个链式点语法`btn.title(@"船长")`
+在Objective-C中,一般点语法`.`是对象的属性,`btn.title(@"船长")`,显而易见,这是对象属性的get方法,有()说明属性是一个block,并且有参数传递.
+
 总结:如果使用属性,只需要getter方法,不需要setter方法,因此属性使用了`readonly`,block当做属性使用,书写时候会有参数提示
 ```swift
 btn.titleFont(<#NSUInteger aNumber#>)
