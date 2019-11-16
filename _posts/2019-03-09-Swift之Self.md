@@ -5,7 +5,7 @@ date: 2019-03-09
 tags: Swift
 ---
 
->>'Self' is only available in a protocol or as the result of a method in a class
+>'Self' is only available in a protocol or as the result of a method in a class
 
 分割开来的话就是两个意思
 
