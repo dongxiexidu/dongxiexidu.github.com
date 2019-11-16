@@ -50,6 +50,8 @@ class Person: CustomStringConvertible,CustomDebugStringConvertible {
 }
 
 let person = Person.init(age: 11, name: "Jack")
+
+print(person) // age=11, name=Jack
 print(person.description) // age=11, name=Jack
 print(person.debugDescription) // debug age=11, name=Jack
 ```
