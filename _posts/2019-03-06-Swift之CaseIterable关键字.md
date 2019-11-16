@@ -69,7 +69,3 @@ for status in statuses {
     print(status) // married
 }
 ```
-
-![demo]({{ "/assets/img/deadCycle.png" | absolute_url }})
-
-这样子写编译器会警告,但是可以通过编译,不会报错,实际上仔细看报错就知道这是个死循环
