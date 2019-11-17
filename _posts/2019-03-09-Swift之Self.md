@@ -59,4 +59,27 @@ let objA = ClassA.init(a: 11, b: 22)
 objA.setValueA(param: 2).setValueB(param: 5)
 print("a=\(objA.a),b=\(objA.b)") // a=2,b=5
 ```
+
+### Self作为参数示例:
+```swift
+public protocol Equatable {
+
+    /// Returns a Boolean value indicating whether two values are equal.
+    ///
+    /// Equality is the inverse of inequality. For any values `a` and `b`,
+    /// `a == b` implies that `a != b` is `false`.
+    ///
+    /// - Parameters:
+    ///   - lhs: A value to compare.
+    ///   - rhs: Another value to compare.
+    static func == (lhs: Self, rhs: Self) -> Bool
+}
+extension Equatable {
+
+    public static func != (lhs: Self, rhs: Self) -> Bool
+}
+```
+
+
+
 总结:Self关键字应用示例,**链式调用**
