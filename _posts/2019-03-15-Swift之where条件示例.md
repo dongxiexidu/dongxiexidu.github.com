@@ -5,7 +5,7 @@ date: 2019-03-15
 tags: Swift
 ---
 
-### 一.Switch中使用
+### 一.switch中使用
 ```swift
 var data = (10, "jack")
 
