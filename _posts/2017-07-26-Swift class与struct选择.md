@@ -73,8 +73,8 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 通过这个示例,如果model是引用类型,那么是地址传递,查看地址一模一样
 
 ### 结构体指针的打印查看
-在控制器A中
 ```swift
+// 在控制器A中
 override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     print(model.age)
     let userPointer =  withUnsafePointer(to: &model, {$0})
@@ -82,10 +82,8 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 }    
 0
 0x00007f9ebcd07de0
-```
 
-在控制器B中
-```swift
+// 在控制器B中
 1
 0x00007f9ebcd1efd0
 ```
@@ -107,7 +105,8 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
 官方建议:
 ```Swift
-define a class, and create instances of that class to be managed and passed by reference. In practice, this means that most custom data constructs should be classes, not structures.
+define a class, and create instances of that class to be managed and passed by reference. 
+In practice, this means that most custom data constructs should be classes, not structures.
 ```
 虽然官方建议尽量使用类而不是结构体,因为类更加灵活,使用更加方便,可以说结构体有的功能类都可以实现,类有些功能结构体无法实现
 
