@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Swift 如何实现类似kingfisher点语法imageView.kf.setImage
+title: Swift 如何实现类似kingfisher点语法2
 date: 2018-08-30
 categories: test
 tags: kingfisher  
@@ -10,8 +10,8 @@ tags: kingfisher
 ```swift
 public final class RoundCorner<Base> {
     
-    public let base : Base
-    public init(_ base : Base){
+    public let base: Base
+    public init(_ base: Base){
         self.base = base
     }
 }
@@ -26,7 +26,7 @@ public protocol RoundCornerCompatible {
 3.在协议扩展中,添加一个只读属性`dx`,返回一个`RoundCorner `对象
 ```swift
 public extension RoundCornerCompatible {
-    public var dx : RoundCorner<Self> {
+    public var dx: RoundCorner<Self> {
         get { return RoundCorner(self) }
     }
 }

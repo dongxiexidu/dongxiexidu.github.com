@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Swift之where条件
+title: Swift之where条件示例2
 date: 2019-03-15
 tags: Swift
 ---
@@ -25,6 +25,17 @@ let ages = [10, 20, 33, 44, 55]
 
 for age in ages where age > 20 {
     print(age)
+}
+
+计算字符串中有多少个数字
+var str = "123test123"
+
+func numberCount(str: String) -> Int {
+    var count = 0
+    for c in str where ("0"..."9").contains(c) {
+        count += 1
+    }
+    return count
 }
 ```
 
