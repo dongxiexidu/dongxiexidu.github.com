@@ -2,7 +2,7 @@
 layout: post
 title: Swift语法-where关键字详解1
 date: 2018-07-31
-tags: Swift关键字
+tags: Swift
 ---
 
 在Swift语法里where关键字的作用跟SQL的where一样， 即**附加条件判断**

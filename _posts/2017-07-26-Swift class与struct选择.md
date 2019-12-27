@@ -3,7 +3,7 @@ layout: post
 title: Swift class与struct选择
 date: 2017-07-26
 categories: Swift
-tags: Swift关键字
+tags: Swift
 ---
 在Swift中`class`和`struct`关系其实很简单,类似`UIView`与`CALayer`,我们知道类`class`的本质就是结构体,所以说结构体`struct`相比较类`class`更加轻量级,因为类的功能比结构体多很多
 

@@ -3,7 +3,7 @@ layout: post
 title: Swift 关键字associatedtype解析
 date: 2017-07-27
 categories: Swift
-tags: 代理/协议
+tags: Swift
 ---
 >从字面上来理解,就是相关类型.意思也就是被associatedtype关键字修饰的变量,相当于一个占位符,不表示具体的类型.具体类型需要让实现的类来指定
 

@@ -3,7 +3,7 @@ layout: post
 title: Swift 如何实现类似kingfisher点语法2
 date: 2018-08-30
 categories: test
-tags: kingfisher  
+tags: Swift
 ---
 
 1.声明一个类`RoundCorner `

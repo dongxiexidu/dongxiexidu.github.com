@@ -3,7 +3,7 @@ layout: post
 title: Swift 如何实现类似kingfisher点语法1
 date: 2018-08-29
 categories: test
-tags: kingfisher  
+tags: Swift  
 ---
 
 ### 实现需求:
