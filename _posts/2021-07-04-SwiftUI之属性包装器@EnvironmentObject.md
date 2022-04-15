@@ -37,3 +37,9 @@ struct ContentView: View {
 - @ObservedObject 用于可能属于多个视图的复杂属性，大多数情况下，如果使用的是引用类型，那么应该为它使用 @ObservedObject。
 - 对使用的每个可观察对象使用 @StateObject 一次，无论代码的哪个部分负责创建它。
 - @EnvironmentObject 用于在应用程序中其它地方创建的属性，例如共享数据。
+
+示例:
+```swift
+window.rootViewController = UIHostingController(rootView: ContentView().environmentObject(CalculatorModel()))
+```
+**可能一开始你会认为 @EnvironmentObject 和 “臭名昭著” 的单例很像：只要我们在View 的层级上，不论何处都可以访问到这个环境对象。**
