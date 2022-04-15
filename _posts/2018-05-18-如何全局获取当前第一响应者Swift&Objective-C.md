@@ -2,7 +2,7 @@
 layout: post
 title: 如何全局获取当前第一响应者
 date: 2018-05-18
-tags: 响应者
+tags: 理论
 ---
 ### 大体思路
 - 1.给`UIResponder`扩展分类`UIResponder+FirstResponder`
