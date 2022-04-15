@@ -2,7 +2,7 @@
 layout: post
 title: iOS UITextField实现输入手机号时自动添加空格
 date: 2015-06-18
-tags: UITextField 代理/协议
+tags: 代理/协议
 ---
 
 ### 场景需求:
