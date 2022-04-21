@@ -70,4 +70,4 @@ struct PlayerNameView: View {
     }
 }
 ```
-** 总结:@StateObject用于创建复杂对象, @ObservedObject用于接收复杂对象, @State用于基本数据类型比如Int,String**
+**总结:@StateObject用于创建复杂对象, @ObservedObject用于接收复杂对象, @State用于基本数据类型比如Int,String**
