@@ -37,4 +37,4 @@ List(0..<rowCount, id: \.self) { row in
 }
 ```
 
-参考:https://www.hackingwithswift.com/books/ios-swiftui/working-with-identifiable-items-in-swiftui
+[参考](https://www.hackingwithswift.com/books/ios-swiftui/working-with-identifiable-items-in-swiftui)
