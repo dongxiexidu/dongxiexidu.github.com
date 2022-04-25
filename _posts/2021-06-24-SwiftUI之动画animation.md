@@ -51,5 +51,5 @@ struct ContentView: View {
     }
 }
 ```
-
+注意:**这两个结合动画是同时进行的,不分先后顺序**
 原文:https://www.hackingwithswift.com/quick-start/swiftui/swiftui-tips-and-tricks
