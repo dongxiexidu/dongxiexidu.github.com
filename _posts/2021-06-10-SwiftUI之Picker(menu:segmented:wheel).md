@@ -28,6 +28,6 @@ struct ContentView: View {
 ```
 ![demo]({{ "/assets/img/picker_menu.png" | absolute_url }})
 2.wheel
-![demo]({{ "/assets/img/picker_wheel.png" | absolute_url }})
+![demo]({{ "/assets/img/picker_wheel.jpeg" | absolute_url }})
 3.segmented
-![demo]({{ "/assets/img/picker_segmented.png" | absolute_url }})
+![demo]({{ "/assets/img/picker_segmented.jpeg" | absolute_url }})
