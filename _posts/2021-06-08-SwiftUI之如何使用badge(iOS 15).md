@@ -28,7 +28,8 @@ struct ContentView: View {
     }
 }
 ```
-![demo]({{ "/assets/img/badge_right.png" | absolute_url }})
+![demo]({{ "/assets/img/tab_badge.png" | absolute_url }})
+
 ### 2.在List rows里面,在右侧显示字符串,并且默认secondary color
 ```swift
 struct ContentView: View {
@@ -44,8 +45,8 @@ struct ContentView: View {
             
         }
     }
-}```
-![demo]({{ "/assets/img/tab_badge.png" | absolute_url }})
+}
+```
 
-
+![demo]({{ "/assets/img/badge_right.png" | absolute_url }})
 [参考](https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-a-badge-to-tabview-items-and-list-rows)
