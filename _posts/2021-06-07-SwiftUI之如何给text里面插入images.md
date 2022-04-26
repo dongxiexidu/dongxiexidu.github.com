@@ -5,7 +5,7 @@ date: 2021-06-07
 tags: SwiftUI
 ---
 
-直接插入,将Image当成Text初始化值
+使用+号,直接插入,将Image当成Text初始化值
 ### 1.示例
 ```swift
 Text("Hello ") + Text(Image(systemName: "star")) + Text(" World!")
