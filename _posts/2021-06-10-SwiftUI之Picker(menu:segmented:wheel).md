@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SwiftUI之Picker(menu/segmented/wheel)
-date: 2021-06-09
+date: 2021-06-10
 tags: SwiftUI
 ---
 
