@@ -7,7 +7,7 @@ tags: SwiftUI
 
 1.自定义结构体遵守Shape协议
 2.实现 path(in:) 方法
-### 1.一样高
+### 示例:
 ```swift
 struct ShrinkingSquares: Shape {
     func path(in rect: CGRect) -> Path {
