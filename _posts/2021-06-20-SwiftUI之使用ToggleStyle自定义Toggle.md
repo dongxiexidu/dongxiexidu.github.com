@@ -36,4 +36,5 @@ struct ContentView: View {
 ```
 
 修改选中✔️号颜色,比如红色.accentColor给为.red
+
 原文:https://www.hackingwithswift.com/quick-start/swiftui/customizing-toggle-with-togglestyle

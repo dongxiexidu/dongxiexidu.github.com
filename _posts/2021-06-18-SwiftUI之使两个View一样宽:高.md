@@ -43,4 +43,5 @@ VStack {
 .fixedSize(horizontal: true, vertical: false)
 ```
 注:capsule 胶囊
+
 原文:https://www.hackingwithswift.com/quick-start/swiftui/how-to-make-two-views-the-same-width-or-height
