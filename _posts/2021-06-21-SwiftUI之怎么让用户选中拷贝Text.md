@@ -5,6 +5,7 @@ date: 2021-06-21
 tags: SwiftUI
 ---
 
+**在iOS 15 新增了Text选中拷贝功能**
 Text文本默认是不能选中拷贝的的,可以通过.textSelection()modifier with the .enabled value
 ```swift
 VStack(spacing: 50) {
