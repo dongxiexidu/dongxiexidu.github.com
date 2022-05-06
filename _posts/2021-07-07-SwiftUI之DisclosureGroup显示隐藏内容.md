@@ -6,7 +6,7 @@ tags: SwiftUI
 ---
 
 iOS 14新增DisclosureGroup,可以非常便捷的显示或隐藏内容,特别适合多段文字
-### 1.extension
+### 示例
 ```swift
 @State private var revealDetails = false
 
