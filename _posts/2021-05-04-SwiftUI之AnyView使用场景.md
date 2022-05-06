@@ -8,14 +8,14 @@ tags: SwiftUI
 SwiftiUI 提供了一个结构体 `AnyView`来表示任意一个 `View` 实例，和 Any 一样可以用来抹除具体的类型。
 ### 1.示例
 ```swift
-    private var conversionView: some View {
-        switch currentConversionSet {
-        case .btc:
-            return AnyView(BitcoinConversionView())
-        case .temperature:
-            return AnyView(TemperatureConversionView())
-        }
+private var conversionView: some View {
+    switch currentConversionSet {
+    case .btc:
+        return AnyView(BitcoinConversionView())
+    case .temperature:
+        return AnyView(TemperatureConversionView())
     }
+}
 ```
 这里如果不使用AnyView会报错:
 
