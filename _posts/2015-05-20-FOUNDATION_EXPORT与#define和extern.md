@@ -2,7 +2,7 @@
 layout: post
 title: FOUNDATION_EXPORT与#define和extern
 date: 2015-05-20
-tags: ObjC关键字
+tags: 理论
 ---
 
 定义常量:
@@ -34,7 +34,7 @@ NSString * const kMyConstantString = @"Hello";
 - 3.一般来说,`#define`宏定义仅仅是在当前文件(.m文件)使用,`extern`和`FOUNDATION_EXPORT`全局使用
 - 4.如果变量声明中带有关键字`extern`,仅仅暗示这个函数肯能在别的源文件里有定义,没有其他作用
 
-![](https://upload-images.jianshu.io/upload_images/987457-6676fc0d72fc28c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![demo]({{ "/assets/img/extern.jpeg" | absolute_url }})
 
 **`extern`不应该用在定义常量**
 
