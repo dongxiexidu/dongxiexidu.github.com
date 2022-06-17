@@ -31,3 +31,9 @@ class CalculatorModel: ObservableObject {
     var brain: CalculatorBrain = .left("0")
 }
 ```
+
+Combine 中存在 @Published 封装，用来把一个 class 的属性值转变为 Publisher。它同时提供了值的存储和对外的 Publisher (**通过投影符号 $ 获取**)
+
+在被 订阅时，当前值也会被发送给订阅者，它的**底层其实就是一个 CurrentValueSubject:**
+
+@Published更被喵神形象的称为自动驾驶!
