@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SwiftUI之Equatable, Hashable, Codable, Identifiable{
+title: SwiftUI之Equatable, Hashable, Codable, Identifiable
 date: 2021-07-11
 tags: SwiftUI
 ---
