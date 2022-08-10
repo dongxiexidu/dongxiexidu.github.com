@@ -28,7 +28,7 @@ struct ContentView: View {
     }
 }
 ```
-![demo]({{ "/assets/img/tab_badge.png" | absolute_url }})
+![demo]({{ "/assets/img/tab_badge.jpeg" | absolute_url }})
 
 ### 2.在List rows里面,在右侧显示字符串,并且默认secondary color
 ```swift
