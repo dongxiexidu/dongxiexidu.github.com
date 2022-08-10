@@ -160,7 +160,10 @@ print(te.whiteStr.count) // "3"
 ### 总结
 
 1, @propertyWrapper的本质就是包装修饰属性的set get方法
+
 2, @propertyWrapper的作用就是降低代码重复率
+
 3, @propertyWrapper的应用中的projectedValue在SwiftUI的 @State中, 作为 @Binding 的修饰对象的引用传递来解决多层嵌套UI的状态同步问题.
 
-喵神的美元人民币转换
+可参考: 喵神的美元人民币转换
+
