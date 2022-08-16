@@ -5,6 +5,7 @@ date: 2021-05-06
 tags: SwiftUI
 ---
 
+**需求:用ForEach遍历,需要用到索引i**
 
 indices  [ˈɪndɪsiːz] index 的复数
 ### 1.示例
