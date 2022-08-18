@@ -5,6 +5,8 @@ date: 2021-07-13
 tags: SwiftUI
 ---
 
+List 本质是对TableView的封装
+
 List默认样式.automatic
 
 ```swift
@@ -20,6 +22,8 @@ var body: some View {
                     }
                 }
             }
+            .listRowSeparator(.hidden) // 隐藏分割线 iOS 15 新增的方法
+            .listRowSeparatorTint(.green)// 修改分割线颜色
         }
         .navigationTitle("Menu")
         .listStyle(.automatic) // 默认, 有圆角,两边有15间距
@@ -32,6 +36,9 @@ var body: some View {
     }
 }
 ```
+
+**注意:** 隐藏分割线.listRowSeparator(.hidden) 需要在List内部
+
 .automatic和.insetGrouped样式一样,有圆角,List两边都有约15的间距
 ![demo]({{ "/assets/img/listStyleAutomaticOrinsetGrouped.png" | absolute_url }})
 
