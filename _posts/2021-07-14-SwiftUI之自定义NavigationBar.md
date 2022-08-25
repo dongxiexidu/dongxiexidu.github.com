@@ -74,6 +74,6 @@ extension Detail {
 }
 ```
 示例图
-![demo]({{ "/assets/img/navigationBar.png" | absolute_url }})
+![demo]({{ "/assets/img/navigationBar.PNG" | absolute_url }})
 
 参考: https://github.com/safarsafarov/DrinkIt-SwiftUI项目
