@@ -1,12 +1,11 @@
 ---
 layout: post
-title: SwiftUI之自定义NavigationBar.
+title: SwiftUI之自定义NavigationBar
 date: 2021-07-14
 tags: SwiftUI
 ---
 
 
-使用frame() modifier
 ```swift
 extension Home {
     var navBar: some View {
