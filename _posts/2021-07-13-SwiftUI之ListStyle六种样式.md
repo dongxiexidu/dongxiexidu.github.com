@@ -21,7 +21,7 @@ var body: some View {
                         }
                     }
                 }
-            }
+            } // 这里listStyle设置无效
             .listRowSeparator(.hidden) // 隐藏分割线 iOS 15 新增的方法
             .listRowSeparatorTint(.green)// 修改分割线颜色
         }
@@ -36,6 +36,8 @@ var body: some View {
     }
 }
 ```
+
+### 注意:listStyle设置在List{}外,设置在内部ForEach是无效的
 
 **注意:** 隐藏分割线.listRowSeparator(.hidden) 需要在List内部
 
