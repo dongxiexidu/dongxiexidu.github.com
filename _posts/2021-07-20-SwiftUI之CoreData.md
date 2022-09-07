@@ -6,8 +6,11 @@ tags: SwiftUI
 ---
 
 - 1.CoreData是对sqlit的封装(面向对象变成)
+
 - 2.因为系统原生支持，可以和 Xcode 完美的结合
+
 - 3.需要手动创建xcdatamodeld文件，文件名称一般命名工程名称
+
 - 4.一般选择让 `Core Data` 自动生成与模型相匹配的代码(不用单独再写model类/结构体)
 
 ![demo]({{ "/assets/img/xcdatamodeld.jpeg" | absolute_url }})
